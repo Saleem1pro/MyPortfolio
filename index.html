@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Showcase</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #181818;
+            color: #fff;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #00adb5;
+        }
+
+        section {
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        #hero {
+            background: linear-gradient(135deg, #00adb5, #393e46);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        #hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        #hero a {
+            display: inline-block;
+            background-color: #fff;
+            color: #00adb5;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #hero a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #about {
+            background-color: #fff;
+            padding: 80px 20px;
+        }
+
+        #about h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #00adb5;
+        }
+
+        #about p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        #projects {
+            background-color: #f4f4f9;
+            padding: 80px 20px;
+        }
+
+        #projects h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #00adb5;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 50px;
+        }
+
+        .project {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project h3 {
+            font-size: 1.5em;
+            margin: 15px 20px 10px;
+        }
+
+        .project p {
+            font-size: 1em;
+            margin: 0 20px 20px;
+            color: #555;
+        }
+
+        .project a {
+            display: inline-block;
+            margin: 0 20px 20px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #00adb5;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project a:hover {
+            background-color: #007c7f;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #skills{
+            background-color: #fff;
+            padding: 80px 20px;
+        }
+        #languages{
+            background-color: #f4f4f9;
+            padding: 80px 20px;
+        }
+        #skills h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #00adb5;
+        }
+        #languages h2{
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #00adb5;
+        }
+        .languages-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 0 50px;
+        }
+
+        .language {
+            background-color: #00adb5;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .language:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 0 50px;
+        }
+
+        .skill {
+            background-color: #00adb5;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #181818;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        #contact {
+            background-color: #fff;
+            padding: 80px 20px;
+        }
+
+        #contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #00adb5;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        form button {
+            padding: 15px 30px;
+            background-color: #00adb5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #007c7f;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Portfolio</div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#languages">Langues</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h1>Bienvenue sur mon Portfolio</h1>
+        <p>Découvrez mes projets et compétences en développement web et mobile.</p>
+        <a href="#about">En savoir plus</a>
+    </section>
+
+    <section id="about">
+        <h2>À propos de moi</h2>
+        <p>Développeur passionné par la création de solutions numériques innovantes, je me spécialise en développement web et mobile. Avec une expertise en technologies modernes, j'aime concevoir des expériences utilisateur intuitives et efficaces.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Mes Projets</h2>
+        <div class="project-grid">
+            <div class="project">
+    <h3>Projet administratif d'inscription d'établissement</h3>
+    <p>
+        Le projet se présente sous forme d'une plateforme administrative pour un responsable d'administration 
+        afin de faciliter la procédure d'enregistrement de nouveaux dossiers d'étudiants. En version Web et Mobile, 
+        ce projet peut être adapté selon le CDC de l'établissement porteur de l'idée.
+    </p>
+    <p><strong>Compétences :</strong> Flutter · PHP · Android Studio · Microsoft Visual Studio Code · MySQL</p>
+    <a href="https://github.com/Saleem1pro/auth_-_dashboard_flutter">Voir plus</a>
+</div>
+<div class="project">
+    <h3>Site e-commerce</h3>
+    <p>
+        Site web e-commerce développé avec HTML, CSS et JavaScript natif, réalisé avec l'aide du chatbot ChatGPT 
+        du début jusqu'à la fin.
+    </p>
+    <p><strong>Compétences :</strong> ChatGPT · JavaScript · Feuilles de style en cascade (CSS) · HTML</p>
+    <a href="https://github.com/Saleem1pro/ecom_lazy_site">Voir plus</a>
+</div>
+
+<div class="project">
+    <h3>Gestion de réservation agence de voyage</h3>
+    <p>
+        Application web pour la gestion des réservations de véhicules pour des voyages organisés.
+    </p>
+    <p><strong>Compétences :</strong> MySQL · PHP · HTML5 · UML · CSS · PhpMyAdmin</p>
+    <a href="#">Voir plus</a>
+</div>
+<div class="project">
+    <h3>Système gestionnaire de vue de document</h3>
+    <p>
+        Système conçu pour un service administratif afin de vérifier la dernière date de consultation d'un document.
+    </p>
+    <p><strong>Compétences :</strong> MySQL · PHP · HTML5 · XAMPP · CSS · PhpMyAdmin</p>
+    <a href="#">Voir plus</a>
+</div>
+<div class="project">
+    <h3>Liste d'appel de service client</h3>
+    <p>
+        Application web statique permettant de lister les numéros des clients pour les intervenants du service client 
+        d'une marque de produits apicoles.
+    </p>
+    <p><strong>Compétences :</strong> JSON · HTML5 · JavaScript · CSS</p>
+    <a href="#">Voir plus</a>
+</div>
+<div class="project">
+    <h3>Gestion d'inscription administrative</h3>
+    <p>
+        Projet développé avec Flutter, PHP et MySQL, adaptable en version mobile pour gérer les inscriptions 
+        administratives dans un établissement.
+    </p>
+    <p><strong>Compétences :</strong> Flutter · PHP · PhpMyAdmin · SQL · XAMPP</p>
+    <a href="https://github.com/Saleem1pro/auth_-_dashboard_flutter">Voir plus</a>
+</div>
+
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Compétences</h2>
+        <div class="skills-list">
+            <div class="skill">
+                <h3>HTML</h3>
+            </div>
+            <div class="skill">
+                <h3>CSS</h3>
+            </div>
+            <div class="skill">
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill">
+                <h3>PHP</h3>
+            </div>
+            <div class="skill">
+                <h3>MySQL</h3>
+            </div>
+            <div class="skill">
+                <h3>PL/SQL</h3>
+            </div>
+            <div class="skill">
+                <h3>WordPress</h3>
+            </div>
+            <div class="skill">
+                <h3>React</h3>
+            </div>
+            <div class="skill">
+                <h3>Agile</h3>
+            </div>
+        </div>
+    </section>
+    <section id="languages">
+        <h2>Langues</h2>
+        <div class="languages-list">
+            <div class="language">
+                <h3>Arabe</h3>
+            </div>
+            <div class="language">
+                <h3>Anglais</h3>
+            </div>
+            <div class="language">
+                <h3>Français</h3>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contactez-moi</h2>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mon Portfolio - Tous droits réservés</p>
+    </footer>
+</body>
+</html>
