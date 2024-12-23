@@ -186,14 +186,36 @@
             background-color: #fff;
             padding: 80px 20px;
         }
-        #languages{
-            background-color: #f4f4f9;
-            padding: 80px 20px;
-        }
+       
         #skills h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
             color: #00adb5;
+        }
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 0 50px;
+        }
+
+        .skill {
+            background-color: #00adb5;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+         #languages{
+            background-color: #f4f4f9;
+            padding: 80px 20px;
         }
         #languages h2{
             font-size: 2.5em;
@@ -221,28 +243,112 @@
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        .skills-list {
+        
+        #experiences {
+            background-color: #f4f4f9;
+            padding: 80px 20px;
+        }
+
+        #experiences h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #00adb5;
+        }
+
+        .experience-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             padding: 0 50px;
         }
 
-        .skill {
-            background-color: #00adb5;
-            color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
+        .experience {
+            background-color: #fff;
+            border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .skill:hover {
+        .experience img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .experience h3 {
+            font-size: 1.5em;
+            margin: 15px 20px 10px;
+        }
+
+        .experience p {
+            font-size: 1em;
+            margin: 0 20px 20px;
+            color: #555;
+        }
+
+        .experience a {
+            display: inline-block;
+            margin: 0 20px 20px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #00adb5;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .experience a:hover {
+            background-color: #007c7f;
+        }
+
+        .experience:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+        #formations {
+            background-color: #fff;
+            padding: 80px 20px;
+        }
 
+        #formations h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #00adb5;
+        }
+
+        .formation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 50px;
+        }
+
+        .formation {
+            background-color: #00adb5;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        
+        .formation h3 {
+            font-size: 1.5em;
+            margin: 15px 20px 10px;
+        }
+
+        .formation p {
+            font-size: 1em;
+            margin: 0 20px 20px;
+            color: #555;
+        }
+
+        .formation:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.01);
+        }
         footer {
             background-color: #181818;
             color: #fff;
@@ -297,6 +403,8 @@
                 <li><a href="#about">À propos</a></li>
                 <li><a href="#projects">Projets</a></li>
                 <li><a href="#skills">Compétences</a></li>
+                <li><a href="#experiences">Expériences</a></li>
+                <li><a href="#formations">Formations</a></li>
                 <li><a href="#languages">Langues</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -404,6 +512,54 @@
             </div>
             <div class="skill">
                 <h3>Agile</h3>
+            </div>
+        </div>
+    </section>
+    <section id="experiences">
+        <h2>Mes Expériences</h2>
+        <div class="experience-grid">
+            <div class="experience">
+              <h3>Stagiaire en développement de modules de formation en IA pour le secteur administratif.</h3>
+              <p>Ministère des Economie et des Finances</p>
+              <p>Août 2024<strong> > </strong> Novembre 2024 · </p>
+            </div>
+            <div class="experience">
+              <h3>Stagiaire chargé d'hébergement ,développement et création de CDC</h3>
+              <p>Maroc Archivage</p>
+              <p>Mai 2024<strong> > </strong> Juin 2024 · </p>
+            </div>
+            <div class="experience">
+              <h3>Stagiaire en Développement Web & Mobile</h3>
+              <p>Maroc Archivage</p>
+              <p>Août 2024<strong> > </strong> Novembre 2024 · </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="formations">
+        <h2>Formations</h2>
+        <div class="formation-grid">
+            <div class="formation">
+              <h3>Licence Professionnelle Universitaire Développement Web & Mobile</h3>
+              <p>ENSET Mohamédia</p>
+              <p>Octobre 2024<strong> > </strong> Maintenant</p>
+            </div>
+            
+            <div class="formation">
+              <h3>Formation JobInTech Développement Web & Mobile</h3>
+              <p>Faculté de Sciences de Rabat</p>
+              <p>Juillet 2023<strong> > </strong> Décembre 2023 · </p>
+            </div>
+            <div class="formation">
+              <h3>Techicien Spécialisé Développement Digitale Option : Web FUllStack</h3>
+              <p>ISTA CRM Hay Riad, Rabat</p>
+              <p>Septembre 2021<strong> > </strong> Juillet 2023 · </p>
+            </div>
+            <div class="formation">
+              <h3>Baccalauréat SMB Option Français</h3>
+              <p>Lycée Tarik Ibn Ziyad</p>
+              <p>Septembre 2018<strong> > </strong> Juin 2019 · </p>
             </div>
         </div>
     </section>
