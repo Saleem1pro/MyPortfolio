@@ -595,7 +595,12 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Mon Portfolio - Tous droits réservés</p>
+<p>&copy; <span id="currentYear"></span> Mon Portfolio - Tous droits réservés</p>
+
+<script>
+  // Insère l'année actuelle dans l'élément avec l'ID 'currentYear'
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
     </footer>
 </body>
 </html>
