@@ -19,7 +19,7 @@
             overflow-x: hidden;
         }
 
-        header {
+              header {
             background-color: #181818;
             color: #fff;
             padding: 20px 50px;
@@ -38,6 +38,7 @@
             font-weight: bold;
         }
 
+        /* Navbar styles for desktop */
         header nav ul {
             list-style: none;
             display: flex;
@@ -53,6 +54,61 @@
 
         header nav ul li a:hover {
             color: #00adb5;
+        }
+
+        /* Burger menu for mobile */
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .burger div {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+        }
+
+        /* Dropdown menu for mobile */
+        .dropdown-menu {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #181818;
+            padding: 10px 20px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-menu a {
+            color: #fff;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            color: #00adb5;
+        }
+
+        /* Toggle the dropdown menu */
+        .dropdown-menu.show {
+            display: flex;
+        }
+
+        /* Show burger menu on small screens */
+        @media screen and (max-width: 768px) {
+            header nav ul {
+                display: none;
+            }
+
+            .burger {
+                display: flex;
+            }
         }
 
         section {
@@ -243,18 +299,15 @@
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
-        #experiences {
-            background-color: #f4f4f9;
+        #experiences{
+            background-color: #fff;
             padding: 80px 20px;
         }
-
         #experiences h2 {
             font-size: 2.5em;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             color: #00adb5;
         }
-
         .experience-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -306,108 +359,27 @@
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        #formations {
-            background-color: #fff;
-            padding: 80px 20px;
-        }
 
-        #formations h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: #00adb5;
-        }
-
-        .formation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 0 50px;
-        }
-
-        .formation {
-            background-color: #00adb5;
-            color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        
-        .formation h3 {
-            font-size: 1.5em;
-            margin: 15px 20px 10px;
-        }
-
-        .formation p {
-            font-size: 1em;
-            margin: 0 20px 20px;
-            color: #555;
-        }
-
-        .formation:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.01);
-        }
         footer {
             background-color: #181818;
             color: #fff;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
+            padding: 20px;
         }
-
-        #contact {
-            background-color: #fff;
-            padding: 80px 20px;
-        }
-
-        #contact h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #00adb5;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        footer p {
             font-size: 1em;
-            box-sizing: border-box;
         }
-
-        form button {
-            padding: 15px 30px;
-            background-color: #00adb5;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-        }
-
-        form button:hover {
-            background-color: #007c7f;
-        }
-
     </style>
 </head>
 <body>
     <header>
-        <!-- Google Translate API -->
-        <div id="google_translate_element"></div>
-        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'fr',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                }, 'google_translate_element');
-            }
-        </script>
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
         <div class="logo">Salim TAYAAEDINE</div>
+        <div class="burger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <nav>
             <ul>
                 <li><a href="#hero">Accueil</a></li>
@@ -420,7 +392,23 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <a href="#hero">Accueil</a>
+            <a href="#about">À propos</a>
+            <a href="#projects">Projets</a>
+            <a href="#skills">Compétences</a>
+            <a href="#experiences">Expériences</a>
+            <a href="#formations">Formations</a>
+            <a href="#languages">Langues</a>
+            <a href="#contact">Contact</a>
+        </div>
     </header>
+    <script>
+        // Toggle the dropdown menu
+        function toggleMenu() {
+            document.getElementById('dropdown-menu').classList.toggle('show');
+        }
+    </script>
 
     <section id="hero">
         <h1>Bienvenue sur mon Portfolio</h1>
